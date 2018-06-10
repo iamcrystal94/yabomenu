@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<view class="container">
+
+<view class='header'>
+  <view class='title'>11舍精武鸭脖</view>
+  <view class='info'>起送￥30 电话：150****3263</view>
+</view>
+
+<view class='menu'>
+  <view class='leibie'>
+  <view class="normal" wx:for="{{fenlei}}" wx:key="{{item}}" id="{{item}}" bindtap="choseLeibie" 
+  style="{{item==leibie?'color:black':'color:#6C6C6C'}}">{{item}}
+    </view>
+  </view>
+  <view class='detail'>
+    <scroll-view scroll-y style="height:{{viewHeight}}px;" bindscrolltoupper="upper"   bindscrolltolower="lower" bindscroll="scroll"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}"> 
+      <view wx:for="{{lists}}" wx:key="{{item.text}}" id="{{item.id}}"  class="item" style="height:{{viewHeight/11}}px;display:{{item.display}}">
+        <text class='name'>{{item.text}}</text>
+        <text class='price'>￥{{item.price}}</text>  
+        <view class='count'>
+          <view class='button' bindtap="minus" id="{{item.text}}" style="visibility:{{item.show}}">-</view>
+          <text class='num' style="visibility:{{item.show}}">{{item.num}}</text>
+          <view class='button add' bindtap='addNum' id="{{item.text}}">+</view>
+        </view>
+      </view>
+    </scroll-view> 
+  </view>
+</view>
+
+<view class='footer'>
+  <button class='car' bindtap='order' style="{{order.length==0?'background:black':'background:red'}}">已选购</button>
+  <view class='total'>￥{{total}}</view>
+  <button bindtap="submit" class='order' style="{{order.length==0?'background:black':'background:red'}}">去结算</button>
+</view>
+<view class='shopcarbg' style='display:{{shopcar}};'>
+  <view class='shopcar'>
+  <view class='cleancar' bindtap='cleancar'>清空购物车</view>
+  <view wx:for="{{order}}" wx:key="{{item.text}}" class='orderitem' >
+    <text class='ordername'>{{item.text}}</text>
+    <text class='orderprice'>￥{{item.price}}</text>
+    <view class='count'>
+    <view class='button' bindtap="minus" id="{{item.text}}">-</view>
+    <text class='num' style="visibility:{{item.show}}">{{item.num}}</text>
+    <view class='button add' bindtap='addNum' id="{{item.text}}">+</view>
+    </view>
+  </view>
+  </view>
+</view>
+</view>

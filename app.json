@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "11舍精武鸭脖",
+    "navigationBarTextStyle":"black"
+  },
+  
+  "globalData":"全部菜单"
+  
+}
